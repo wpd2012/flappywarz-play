@@ -1,8 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
-  <path fill="#08243b" d="M0 0h80v80H0z"/>
-  <g transform="translate(8 8)" stroke="#152436" stroke-width="4">
-    <circle cx="29" cy="33" r="24" fill="#ffcf32"/>
-    <path d="m45 29 17 9-17 8" fill="#ff6b46" stroke-width="3"/>
-    <circle cx="36" cy="25" r="5" fill="#152436" stroke="none"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <title>Flappy WarZ — Goldie</title>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#35c9f3"/>
+      <stop offset="1" stop-color="#1062a3"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2=".3" y2="1">
+      <stop stop-color="#fff77a"/>
+      <stop offset=".38" stop-color="#ffde27"/>
+      <stop offset="1" stop-color="#ffac19"/>
+    </linearGradient>
+    <linearGradient id="beak" x2=".3" y2="1">
+      <stop stop-color="#ff8066"/>
+      <stop offset=".45" stop-color="#ff3f37"/>
+      <stop offset="1" stop-color="#d82035"/>
+    </linearGradient>
+    <path id="body" d="M24 53C16 47 14 39 15 34L38 44C28 32 27 22 30 17C39 30 45 34 51 38C72 29 94 39 102 59C112 83 97 108 73 112C48 117 28 106 24 88L12 84L23 73L11 62Z"/>
+  </defs>
+  <rect width="128" height="128" rx="27" fill="url(#sky)"/>
+  <path d="M10 31C38 4 87 4 116 28" fill="none" stroke="#e9ffff" stroke-opacity=".23" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="67" cy="111" rx="39" ry="7" fill="#073653" opacity=".28"/>
+  <use href="#body" fill="none" stroke="#e8fcff" stroke-width="10" stroke-linejoin="round"/>
+  <use href="#body" fill="url(#gold)" stroke="#152c3b" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M33 94C50 109 78 109 94 94C83 111 53 119 33 94Z" fill="#ed9114"/>
+  <path d="M26 69C34 69 45 76 54 80C46 86 36 88 28 82" fill="#f8b51c" stroke="#152c3b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 44C59 38 77 39 87 45" fill="none" stroke="#fff9a1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M64 51L100 60C106 75 98 88 85 88C71 88 61 76 64 51Z" fill="#fffef2" stroke="#152c3b" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M67 76C76 85 90 86 99 77" fill="none" stroke="#dee8e9" stroke-width="3"/>
+  <ellipse cx="88" cy="70" rx="7" ry="10" fill="#152c3b"/>
+  <circle cx="85.5" cy="65.5" r="2.7" fill="#fff"/>
+  <path d="M63 50L101 59" fill="none" stroke="#152c3b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M88 88C91 79 105 76 116 82C120 86 109 100 101 104C94 101 90 96 88 88Z" fill="url(#beak)" stroke="#152c3b" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M97 85C101 82 107 82 111 84" fill="none" stroke="#fff1c5" stroke-width="3" stroke-linecap="round"/>
 </svg>
