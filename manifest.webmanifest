@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "Flappy WarZ",
+  "short_name": "Flappy WarZ",
+  "description": "Two birds. One sky. A local two-player arcade battle.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#08243b",
+  "theme_color": "#08243b",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

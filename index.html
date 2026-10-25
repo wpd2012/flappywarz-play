@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#08243b" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Flappy WarZ" />
+    <link rel="manifest" href="/flappywarz-play/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/flappywarz-play/icons/icon-180.png" />
+    <meta name="description" content="Two birds. One sky. A local two-player arcade battle. Tap to flap, dodge, and fire!" />
+    <title>Flappy WarZ — Two birds. One sky.</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='29' cy='33' r='24' fill='%23ffcf32' stroke='%23152436' stroke-width='4'/%3E%3Cpath d='M45 29l17 9-17 8' fill='%23ff6b46' stroke='%23152436' stroke-width='3'/%3E%3Ccircle cx='36' cy='25' r='5' fill='%23152436'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="/flappywarz-play/assets/index-Dvt759Pd.js"></script>
+    <link rel="stylesheet" crossorigin href="/flappywarz-play/assets/index-MVpn4HZ4.css">
+  </head>
+  <body>
+    <main id="stage" aria-label="Flappy WarZ two-player game">
+      <canvas id="arena" width="1920" height="1080" aria-label="Game arena. Player one: Space, 1, 2, 3. Player two: Numpad 0, 1, 2, 3."></canvas>
+      <div class="move-stick" id="move-stick-0" aria-hidden="true" hidden><span class="stick-knob"></span></div>
+      <div class="move-stick stick-right" id="move-stick-1" aria-hidden="true" hidden><span class="stick-knob"></span></div>
+      <div class="portal portal-top" aria-hidden="true"></div>
+      <div class="portal portal-bottom" aria-hidden="true"></div>
+
+      <header class="hud">
+        <div class="player-hud yellow">
+          <div class="portrait-stack">
+            <div class="avatar avatar-yellow" aria-hidden="true"></div>
+          </div>
+          <div class="health-panel">
+            <div class="player-name">PLAYER 1 <span id="skin-name-0">GOLDIE</span></div>
+            <div class="health-bar" id="health-0" role="progressbar" aria-label="Player 1 health" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="health-fill"></span><span class="health-value">100 / 100</span></div>
+            <div class="ultimate-meter" id="ultimate-0" role="progressbar" aria-label="Player 1 ultimate charge" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" title="Sky Barrage charge"><span class="ultimate-fill"></span></div>
+          </div>
+        </div>
+        <div class="brand"><img class="logo" src="/flappywarz-play/assets/flappy-warz-logo.png" alt="Flappy WarZ" width="2059" height="764" draggable="false" /></div>
+        <div class="player-hud red">
+          <div class="health-panel">
+            <div class="player-name"><span id="skin-name-1">SCARLET</span> PLAYER 2</div>
+            <div class="health-bar" id="health-1" role="progressbar" aria-label="Player 2 health" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="health-fill"></span><span class="health-value">100 / 100</span></div>
+            <div class="ultimate-meter" id="ultimate-1" role="progressbar" aria-label="Player 2 ultimate charge" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" title="Sky Barrage charge"><span class="ultimate-fill"></span></div>
+          </div>
+          <div class="portrait-stack">
+            <div class="avatar avatar-red" aria-hidden="true"></div>
+          </div>
+        </div>
+      </header>
+      <div class="clock" id="timer">02:00</div>
+
+      <nav class="utilities" aria-label="Game options">
+        <button id="sound-button" class="utility" aria-label="Mute sound" title="Toggle sound">♪</button>
+        <button id="pause-button" class="utility" aria-label="Pause game" title="Pause (Esc)">Ⅱ</button>
+        <button id="fullscreen-button" class="utility" aria-label="Enter fullscreen" title="Fullscreen">⛶</button>
+      </nav>
+
+      <div class="flap-hint hint-left"><span>⌃</span><b class="movement-hint">RELEASE TO FLAP</b><kbd>SPACE</kbd></div>
+      <div class="flap-hint hint-right"><span>⌃</span><b class="movement-hint">RELEASE TO FLAP</b><kbd>NUM 0</kbd></div>
+      <div class="control-deck deck-left">
+        <button class="weapon yellow regular" data-player="0" data-action="fire" aria-label="Player 1 regular fire (1)"><span class="weapon-face"><svg viewBox="0 0 100 70" aria-hidden="true"><path d="M8 36 39 25 20 12 64 20C99 21 101 54 65 55L18 59 37 44Z"/></svg></span><b>FIRE</b><kbd>1</kbd></button>
+        <button class="weapon yellow special" data-player="0" data-action="special" aria-label="Player 1 special fire (2)"><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="m50 5 9 25 22-16-9 27 25 9-25 9 9 27-22-16-9 25-9-25-22 16 9-27L3 50l25-9-9-27 22 16Z"/></svg></span><b>SPECIAL</b><kbd>2</kbd><span class="cooldown">READY</span></button>
+        <button class="weapon yellow ultimate" data-player="0" data-action="ultimate" aria-label="Player 1 ultimate Sky Barrage (3)" title="Sky Barrage · up to 40 damage" hidden><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M11 43 60 43 51 27 93 50 51 73 60 57 11 57Z M18 16 52 23 42 10 76 29 41 37 48 30 14 24Z M18 84 52 77 42 90 76 71 41 63 48 70 14 76Z"/></svg></span><b>ULTIMATE</b><kbd>3</kbd><span class="cooldown">READY</span></button>
+      </div>
+      <div class="control-deck deck-right">
+        <button class="weapon red ultimate" data-player="1" data-action="ultimate" aria-label="Player 2 ultimate Sky Barrage (Numpad 3)" title="Sky Barrage · up to 40 damage" hidden><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M11 43 60 43 51 27 93 50 51 73 60 57 11 57Z M18 16 52 23 42 10 76 29 41 37 48 30 14 24Z M18 84 52 77 42 90 76 71 41 63 48 70 14 76Z"/></svg></span><b>ULTIMATE</b><kbd>NUM 3</kbd><span class="cooldown">READY</span></button>
+        <button class="weapon red special" data-player="1" data-action="special" aria-label="Player 2 special fire (Numpad 2)"><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="m50 5 9 25 22-16-9 27 25 9-25 9 9 27-22-16-9 25-9-25-22 16 9-27L3 50l25-9-9-27 22 16Z"/></svg></span><b>SPECIAL</b><kbd>NUM 2</kbd><span class="cooldown">READY</span></button>
+        <button class="weapon red regular" data-player="1" data-action="fire" aria-label="Player 2 regular fire (Numpad 1)"><span class="weapon-face"><svg viewBox="0 0 100 70" aria-hidden="true"><path d="M8 36 39 25 20 12 64 20C99 21 101 54 65 55L18 59 37 44Z"/></svg></span><b>FIRE</b><kbd>NUM 1</kbd></button>
+      </div>
+      <div class="arena-caption"><span></span> LOCAL VERSUS <span></span></div>
+      <div id="countdown" class="countdown" hidden aria-live="polite"></div>
+
+      <section id="overlay" class="overlay" aria-label="Match menu">
+        <div class="player-selection" data-player="0">
+          <div class="appearance-strip" role="group" aria-label="Player 1 appearance options">
+            <button type="button" class="skin-menu-button" data-picker="cosmetics" data-player="0" aria-label="Player 1 skins" title="Skins &amp; accessories" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M26 18a6 6 0 1 1 10 4l-4 4v6"/><path d="m32 32 22 13a3 3 0 0 1-1.5 5.5h-41A3 3 0 0 1 10 45Z"/></svg></button>
+            <button type="button" class="egg-menu-button" data-picker="eggs" data-player="0" aria-label="Player 1 egg style" title="Egg styles" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 7C23 7 12 28 12 40C12 64 52 64 52 40C52 28 41 7 32 7Z"/><circle cx="25" cy="36" r="2"/><circle cx="38" cy="43" r="3"/></svg></button>
+          </div>
+          <div class="selection-content" id="selection-content-0">
+        <div class="skin-select" data-player="0" role="group" aria-label="Player 1 bird skin">
+          <span class="skin-select-label">PLAYER 1</span>
+          <button class="skin-option" data-player="0" data-skin="0" aria-label="Player 1 Goldie skin" aria-pressed="true"><span class="skin-portrait"><span class="skin-bird"></span></span><span>GOLDIE</span></button>
+          <button class="skin-option" data-player="0" data-skin="1" aria-label="Player 1 Scarlet skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>SCARLET</span></button>
+          <button class="skin-option" data-player="0" data-skin="2" aria-label="Player 1 Blue skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>BLUE</span></button>
+          <button class="skin-option" data-player="0" data-skin="3" aria-label="Player 1 Green skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>GREEN</span></button>
+          <button class="skin-option" data-player="0" data-skin="4" aria-label="Player 1 Orange skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>ORANGE</span></button>
+          <button class="skin-option" data-player="0" data-skin="5" aria-label="Player 1 Pink skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>PINK</span></button>
+          <button class="skin-option" data-player="0" data-skin="6" aria-label="Player 1 Purple skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>PURPLE</span></button>
+          <button class="skin-option" data-player="0" data-skin="7" aria-label="Player 1 Teal skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>TEAL</span></button>
+          <button class="skin-option" data-player="0" data-skin="8" aria-label="Player 1 Lime skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>LIME</span></button>
+          <button class="skin-option" data-player="0" data-skin="9" aria-label="Player 1 White skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>WHITE</span></button>
+          <button class="skin-option" data-player="0" data-skin="10" aria-label="Player 1 Silver skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>SILVER</span></button>
+          <button class="skin-option" data-player="0" data-skin="11" aria-label="Player 1 Midnight skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>MIDNIGHT</span></button>
+        </div>
+          </div>
+            <div class="loadout" aria-label="Player 1 loadout">
+              <button class="loadout-slot" data-player="0" data-slot="regular" aria-label="Player 1 choose regular"><span class="loadout-type">REGULAR</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
+              <button class="loadout-slot" data-player="0" data-slot="special" aria-label="Player 1 choose special"><span class="loadout-type">SPECIAL</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
+              <button class="loadout-slot" data-player="0" data-slot="ultimate" aria-label="Player 1 choose ultimate"><span class="loadout-type">ULTIMATE</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
+            </div>
+          <div class="skill-picker" id="skill-picker-0" data-player="0" hidden>
+            <img class="cosmetics-preview" id="cosmetics-preview-0" alt="Player 1 appearance preview" hidden />
+            <section class="skill-sheet" role="dialog" aria-labelledby="skill-title-0">
+              <header class="skill-header"><div><h2 id="skill-title-0">Choose skill</h2></div><button class="skill-close" data-player="0" aria-label="Close player 1 picker">×</button></header>
+              <div class="skill-list" id="skill-list-0"></div>
+              <button type="button" class="skill-random" data-player="0" aria-label="Choose a random skill for player 1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h3c4 0 8 12 12 12h3m-4-4 4 4-4 4M3 18h3c1.4 0 2.8-1.5 4-3.5M14 9.5C15.4 7.5 16.7 6 18 6h3m-4-4 4 4-4 4"/></svg>Random</button>
+              <p class="skill-picker-hint">TAP A SKILL TO EQUIP · ESC TO CLOSE</p>
+            </section>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="eyebrow" id="menu-eyebrow">SAME SCREEN. BIG RIVALRY.</div>
+          <h1 id="menu-title">Two birds.<br /><em>One sky.</em></h1>
+          <p id="menu-description">Flap to dodge. Fire to settle it.<br />Grab a friend and share the screen.</p>
+          <button id="play-button" class="play-button">LET’S BATTLE <span>↗</span></button>
+          <button id="restart-button" class="text-button" hidden>START A NEW MATCH</button>
+          <div class="movement-switch" role="group" aria-label="Movement mode">
+            <button class="movement-option" data-movement="directional" aria-pressed="false">DIRECTIONAL</button>
+            <button class="movement-option" data-movement="hover" aria-pressed="true">UPWARD TEST</button>
+            <button class="movement-option" data-movement="original" aria-pressed="false">ORIGINAL</button>
+          </div>
+          <div class="movement-switch reload-switch" role="group" aria-label="Reload mode">
+            <button class="movement-option reload-option" data-reload="regular" aria-pressed="true">REGULAR</button>
+            <button class="movement-option reload-option" data-reload="shotgun" aria-pressed="false">SHOTGUN</button>
+            <button class="movement-option reload-option" data-reload="overheat" aria-pressed="false">OVERHEAT</button>
+          </div>
+          <div class="menu-controls"><span><i class="dot gold"></i> P1 <kbd class="direction-keys" hidden>WASD</kbd> <kbd>SPACE</kbd> <small class="movement-action">FLAP</small> <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></span><span><i class="dot coral"></i> P2 <kbd class="direction-keys" hidden>↑←↓→</kbd> <kbd>NUM 0</kbd> <small class="movement-action">FLAP</small> <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></span></div>
+          <div class="menu-footnote" id="movement-description">TAP &amp; RELEASE TO FLAP · HOLD TO CLIMB / DIVE</div>
+        </div>
+        <div class="player-selection" data-player="1">
+          <div class="appearance-strip" role="group" aria-label="Player 2 appearance options">
+            <button type="button" class="skin-menu-button" data-picker="cosmetics" data-player="1" aria-label="Player 2 skins" title="Skins &amp; accessories" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M26 18a6 6 0 1 1 10 4l-4 4v6"/><path d="m32 32 22 13a3 3 0 0 1-1.5 5.5h-41A3 3 0 0 1 10 45Z"/></svg></button>
+            <button type="button" class="egg-menu-button" data-picker="eggs" data-player="1" aria-label="Player 2 egg style" title="Egg styles" aria-haspopup="dialog" aria-expanded="false"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 7C23 7 12 28 12 40C12 64 52 64 52 40C52 28 41 7 32 7Z"/><circle cx="25" cy="36" r="2"/><circle cx="38" cy="43" r="3"/></svg></button>
+          </div>
+          <div class="selection-content" id="selection-content-1">
+        <div class="skin-select" data-player="1" role="group" aria-label="Player 2 bird skin">
+          <span class="skin-select-label">PLAYER 2</span>
+          <button class="skin-option" data-player="1" data-skin="0" aria-label="Player 2 Goldie skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>GOLDIE</span></button>
+          <button class="skin-option" data-player="1" data-skin="1" aria-label="Player 2 Scarlet skin" aria-pressed="true"><span class="skin-portrait"><span class="skin-bird"></span></span><span>SCARLET</span></button>
+          <button class="skin-option" data-player="1" data-skin="2" aria-label="Player 2 Blue skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>BLUE</span></button>
+          <button class="skin-option" data-player="1" data-skin="3" aria-label="Player 2 Green skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>GREEN</span></button>
+          <button class="skin-option" data-player="1" data-skin="4" aria-label="Player 2 Orange skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>ORANGE</span></button>
+          <button class="skin-option" data-player="1" data-skin="5" aria-label="Player 2 Pink skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>PINK</span></button>
+          <button class="skin-option" data-player="1" data-skin="6" aria-label="Player 2 Purple skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>PURPLE</span></button>
+          <button class="skin-option" data-player="1" data-skin="7" aria-label="Player 2 Teal skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>TEAL</span></button>
+          <button class="skin-option" data-player="1" data-skin="8" aria-label="Player 2 Lime skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>LIME</span></button>
+          <button class="skin-option" data-player="1" data-skin="9" aria-label="Player 2 White skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>WHITE</span></button>
+          <button class="skin-option" data-player="1" data-skin="10" aria-label="Player 2 Silver skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>SILVER</span></button>
+          <button class="skin-option" data-player="1" data-skin="11" aria-label="Player 2 Midnight skin" aria-pressed="false"><span class="skin-portrait"><span class="skin-bird"></span></span><span>MIDNIGHT</span></button>
+        </div>
+          </div>
+            <div class="loadout" aria-label="Player 2 loadout">
+              <button class="loadout-slot" data-player="1" data-slot="regular" aria-label="Player 2 choose regular"><span class="loadout-type">REGULAR</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
+              <button class="loadout-slot" data-player="1" data-slot="special" aria-label="Player 2 choose special"><span class="loadout-type">SPECIAL</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
+              <button class="loadout-slot" data-player="1" data-slot="ultimate" aria-label="Player 2 choose ultimate"><span class="loadout-type">ULTIMATE</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
+            </div>
+          <div class="skill-picker" id="skill-picker-1" data-player="1" hidden>
+            <img class="cosmetics-preview" id="cosmetics-preview-1" alt="Player 2 appearance preview" hidden />
+            <section class="skill-sheet" role="dialog" aria-labelledby="skill-title-1">
+              <header class="skill-header"><div><h2 id="skill-title-1">Choose skill</h2></div><button class="skill-close" data-player="1" aria-label="Close player 2 picker">×</button></header>
+              <div class="skill-list" id="skill-list-1"></div>
+              <button type="button" class="skill-random" data-player="1" aria-label="Choose a random skill for player 2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h3c4 0 8 12 12 12h3m-4-4 4 4-4 4M3 18h3c1.4 0 2.8-1.5 4-3.5M14 9.5C15.4 7.5 16.7 6 18 6h3m-4-4 4 4-4 4"/></svg>Random</button>
+              <p class="skill-picker-hint">TAP A SKILL TO EQUIP · ESC TO CLOSE</p>
+            </section>
+          </div>
+        </div>
+      </section>
+      <div class="version">1920 × 1080 <span>·</span> FIRST FLIGHT</div>
+      <div id="notice" class="notice" role="status" hidden></div>
+    </main>
+    <div class="rotate-hint">↻ Best played in landscape</div>
+  </body>
+</html>
