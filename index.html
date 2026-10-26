@@ -6,14 +6,14 @@
     <meta name="theme-color" content="#08243b" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Flappy WarZ" />
-    <link rel="manifest" href="/flappywarz-play/manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="/flappywarz-play/icons/icon-180.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
     <meta name="description" content="Two birds. One sky. A local two-player arcade battle. Tap to flap, dodge, and fire!" />
     <title>Flappy WarZ — Two birds. One sky.</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/flappywarz-play/icons/icon-32.png" />
-    <link rel="icon" type="image/svg+xml" href="/flappywarz-play/icons/icon.svg" />
-    <script type="module" crossorigin src="/flappywarz-play/assets/index-DN26g1tg.js"></script>
-    <link rel="stylesheet" crossorigin href="/flappywarz-play/assets/index-daIOwXYW.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+    <script type="module" crossorigin src="/assets/index-Dv4Kof35.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BM5mxSd3.css">
   </head>
   <body>
     <main id="stage" aria-label="Flappy WarZ two-player game">
@@ -38,7 +38,7 @@
             <div class="ultimate-meter" id="ultimate-0" role="progressbar" aria-label="Player 1 ultimate charge" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" title="Sky Barrage charge"><span class="ultimate-fill"></span></div>
           </div>
         </div>
-        <div class="brand"><img class="logo" src="/flappywarz-play/assets/flappy-warz-logo.png" alt="Flappy WarZ" width="2059" height="764" draggable="false" /></div>
+        <div class="brand"><img class="logo" src="/assets/flappy-warz-logo.png" alt="Flappy WarZ" width="2059" height="764" draggable="false" /></div>
         <div class="player-hud red">
           <div class="health-panel">
             <div class="player-name"><span id="character-name-1">OWL</span> PLAYER 2</div>
@@ -127,31 +127,34 @@
           <h1 id="menu-title">Two birds.<br /><em>One sky.</em></h1>
           <div id="stage-options" class="stage-options" role="group" aria-label="Stage selection"></div>
           <button id="play-button" class="play-button">LET’S BATTLE <span>↗</span></button>
-          <button id="restart-button" class="text-button" hidden>START A NEW MATCH</button>
-          <div class="movement-switch" role="group" aria-label="Movement mode">
-            <button class="movement-option" data-movement="directional" aria-pressed="false">DIRECTIONAL</button>
-            <button class="movement-option" data-movement="modern" aria-pressed="true">MODERN</button>
-            <button class="movement-option" data-movement="original" aria-pressed="false">ORIGINAL</button>
-          </div>
-          <label class="modern-control-setting" id="modern-control-setting">Modern controls:
-            <select id="modern-control">
-              <option value="standard">Standard</option>
-              <option value="floating">Floating Joystick</option>
-              <option value="experimental">Experimental</option>
-            </select>
-          </label>
-          <div class="movement-switch reload-switch" role="group" aria-label="Reload mode">
-            <button class="movement-option reload-option" data-reload="regular" aria-pressed="false">REGULAR</button>
-            <button class="movement-option reload-option" data-reload="shotgun" aria-pressed="true">SHOTGUN</button>
-            <button class="movement-option reload-option" data-reload="overheat" aria-pressed="false">OVERHEAT</button>
-          </div>
-          <div class="movement-switch duration-switch" role="group" aria-label="Match time limit">
-            <button class="movement-option" data-duration="60" aria-pressed="false">1:00</button>
-            <button class="movement-option" data-duration="120" aria-pressed="true">2:00</button>
-            <button class="movement-option" data-duration="unlimited" aria-pressed="false">UNLIMITED</button>
+          <button id="restart-button" class="pause-return-button" type="button" aria-label="Return to character and stage selection" title="Return to character and stage selection" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h9a7 7 0 0 1 0 14h-2"/></svg></button>
+          <div id="advanced-settings" class="advanced-settings" hidden>
+            <div class="movement-switch" role="group" aria-label="Movement mode">
+              <button class="movement-option" data-movement="directional" aria-pressed="false">DIRECTIONAL</button>
+              <button class="movement-option" data-movement="modern" aria-pressed="true">MODERN</button>
+              <button class="movement-option" data-movement="original" aria-pressed="false">ORIGINAL</button>
+            </div>
+            <label class="modern-control-setting" id="modern-control-setting">Modern controls:
+              <select id="modern-control">
+                <option value="standard">Standard</option>
+                <option value="floating">Floating Joystick</option>
+                <option value="experimental">Experimental</option>
+              </select>
+            </label>
+            <div class="movement-switch reload-switch" role="group" aria-label="Reload mode">
+              <button class="movement-option reload-option" data-reload="regular" aria-pressed="false">REGULAR</button>
+              <button class="movement-option reload-option" data-reload="shotgun" aria-pressed="true">SHOTGUN</button>
+              <button class="movement-option reload-option" data-reload="overheat" aria-pressed="false">OVERHEAT</button>
+            </div>
+            <div class="movement-switch duration-switch" role="group" aria-label="Match time limit">
+              <button class="movement-option" data-duration="60" aria-pressed="false">1:00</button>
+              <button class="movement-option" data-duration="120" aria-pressed="true">2:00</button>
+              <button class="movement-option" data-duration="unlimited" aria-pressed="false">UNLIMITED</button>
+            </div>
           </div>
           <div class="menu-controls"><span><i class="dot gold"></i> P1 <kbd class="direction-keys" hidden>WASD</kbd> <kbd>SPACE</kbd> <small class="movement-action">FLAP</small> <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd></span><span><i class="dot coral"></i> P2 <kbd class="direction-keys" hidden>↑←↓→</kbd> <kbd>NUM 0</kbd> <small class="movement-action">FLAP</small> <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd></span></div>
           <div class="menu-footnote" id="movement-description">HOLD &amp; DRAG TO STEER · TAP &amp; RELEASE TO FLAP</div>
+          <button id="advanced-settings-toggle" class="advanced-settings-toggle" type="button" aria-expanded="false" aria-controls="advanced-settings">Advanced Settings <span aria-hidden="true">⌄</span></button>
         </div>
         <div class="player-selection" data-player="1">
           <div class="appearance-strip" role="group" aria-label="Player 2 appearance options">
