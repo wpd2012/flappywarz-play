@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Flappy WarZ",
   "short_name": "Flappy WarZ",
-  "description": "Two birds. One sky. A local two-player arcade battle.",
+  "description": "Flappy WarZ is a local two-player arcade battle.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
