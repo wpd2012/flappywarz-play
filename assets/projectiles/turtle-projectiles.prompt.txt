@@ -1,0 +1,17 @@
+Generation: built-in image_gen tool; transparent PNG output.
+Style reference: web/public/assets/characters/turtle.png.
+
+Shared direction:
+High-resolution FlappyWarZ game sprites matching Turtle's cute 2D mobile-game art: thick dark outlines, bright flat colors, chunky readable silhouettes and simple two-tone cel shading. Genuine transparent alpha. No text, scene, ground, frames, realism, painterly textures or 3D rendering. Complete subjects with transparent margins.
+
+Shell Skipper:
+One detached, recognizable domed turtle carapace in a slightly elevated three-quarter view. Rounded horizontal oval, warm orange-brown interlocking hexagonal scutes, dark grooves, thick segmented tan/golden rim, simple orange shading and a few white cartoon shine highlights. Match the shell on Turtle's back. No head, limbs, tail, face, eyes, spikes or abstract shield symbols.
+Saved: turtle-shell-skipper.png (1402 x 1122).
+
+Shell Guardian:
+One enormous upright turtle carapace acting as a moving shield. Tall narrow silhouette approximately 2:5, rear rim on the left and domed shell surface on the right. Orange-brown scutes, thick dark outlines and tan/golden rim, matching Turtle's shell. A rounded three-dimensional cartoon shell rather than a flat heraldic polygon or plain half-circle. No limbs, head, face, emblems or spikes.
+Saved: turtle-shell-guardian.png (793 x 1983).
+
+Tidal Wave:
+One rising curled ocean wave moving right, with a clear rolling crest, scalloped white foam, cyan/deep-blue water and white flow ribbons. Thick navy outlines and simple bold cel shading. The final refinement keeps this design while making its overall silhouette tall and narrow (roughly 2:3), tightening the left water skirt and removing detached droplets that unnecessarily widen the sprite. One contiguous wave, no background haze, text, characters or weapon shapes.
+Saved: turtle-tidal-wave.png (1024 x 1536).

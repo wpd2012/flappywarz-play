@@ -12,8 +12,8 @@
     <title>Flappy WarZ</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/flappywarz-play/icons/icon-32.png" />
     <link rel="icon" type="image/svg+xml" href="/flappywarz-play/icons/icon.svg" />
-    <script type="module" crossorigin src="/flappywarz-play/assets/index-DASCzODd.js"></script>
-    <link rel="stylesheet" crossorigin href="/flappywarz-play/assets/index-B8GrFAdK.css">
+    <script type="module" crossorigin src="/flappywarz-play/assets/index-DWOnmuHm.js"></script>
+    <link rel="stylesheet" crossorigin href="/flappywarz-play/assets/index-usACZuat.css">
   </head>
   <body>
     <main id="stage" aria-label="Flappy WarZ two-player game">
@@ -61,12 +61,14 @@
       <div class="flap-hint hint-left"><span>⌃</span><b class="movement-hint">RELEASE TO FLAP</b><kbd>SPACE</kbd></div>
       <div class="flap-hint hint-right"><span>⌃</span><b class="movement-hint">RELEASE TO FLAP</b><kbd>NUM 0</kbd></div>
       <div class="control-deck deck-left">
+        <button class="weapon item-action" data-player="0" data-action="item" aria-label="Use item"><span class="weapon-face"></span><b>A</b><kbd>E</kbd><span class="item-count"></span></button>
         <button class="weapon yellow regular" data-player="0" data-action="fire" aria-label="Player 1 regular fire (1)"><span class="weapon-face"><svg viewBox="0 0 100 70" aria-hidden="true"><path d="M8 36 39 25 20 12 64 20C99 21 101 54 65 55L18 59 37 44Z"/></svg></span><b>FIRE</b><kbd>1</kbd></button>
         <button class="weapon yellow skill" data-player="0" data-action="skill1" aria-label="Player 1 Skill 1 (2)"><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="m50 5 9 25 22-16-9 27 25 9-25 9 9 27-22-16-9 25-9-25-22 16 9-27L3 50l25-9-9-27 22 16Z"/></svg></span><b>SKILL 1</b><kbd>2</kbd><span class="cooldown">READY</span></button>
         <button class="weapon yellow skill" data-player="0" data-action="skill2" aria-label="Player 1 Skill 2 (3)"><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M11 43 60 43 51 27 93 50 51 73 60 57 11 57Z M18 16 52 23 42 10 76 29 41 37 48 30 14 24Z M18 84 52 77 42 90 76 71 41 63 48 70 14 76Z"/></svg></span><b>SKILL 2</b><kbd>3</kbd><span class="cooldown">READY</span></button>
         <button class="weapon yellow ultimate" data-player="0" data-action="ultimate" aria-label="Player 1 ultimate Sky Barrage (4)" title="Sky Barrage · up to 40 damage" hidden><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M11 43 60 43 51 27 93 50 51 73 60 57 11 57Z M18 16 52 23 42 10 76 29 41 37 48 30 14 24Z M18 84 52 77 42 90 76 71 41 63 48 70 14 76Z"/></svg></span><b>ULTIMATE</b><kbd>4</kbd><span class="cooldown">READY</span></button>
       </div>
       <div class="control-deck deck-right">
+        <button class="weapon item-action" data-player="1" data-action="item" aria-label="Use item"><span class="weapon-face"></span><b>A</b><kbd>NUM 5</kbd><span class="item-count"></span></button>
         <button class="weapon red ultimate" data-player="1" data-action="ultimate" aria-label="Player 2 ultimate Sky Barrage (Numpad 4)" title="Sky Barrage · up to 40 damage" hidden><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M11 43 60 43 51 27 93 50 51 73 60 57 11 57Z M18 16 52 23 42 10 76 29 41 37 48 30 14 24Z M18 84 52 77 42 90 76 71 41 63 48 70 14 76Z"/></svg></span><b>ULTIMATE</b><kbd>NUM 4</kbd><span class="cooldown">READY</span></button>
         <button class="weapon red skill" data-player="1" data-action="skill2" aria-label="Player 2 Skill 2 (Numpad 3)"><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M11 43 60 43 51 27 93 50 51 73 60 57 11 57Z M18 16 52 23 42 10 76 29 41 37 48 30 14 24Z M18 84 52 77 42 90 76 71 41 63 48 70 14 76Z"/></svg></span><b>SKILL 2</b><kbd>NUM 3</kbd><span class="cooldown">READY</span></button>
         <button class="weapon red skill" data-player="1" data-action="skill1" aria-label="Player 2 Skill 1 (Numpad 2)"><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="m50 5 9 25 22-16-9 27 25 9-25 9 9 27-22-16-9 25-9-25-22 16 9-27L3 50l25-9-9-27 22 16Z"/></svg></span><b>SKILL 1</b><kbd>NUM 2</kbd><span class="cooldown">READY</span></button>
@@ -111,6 +113,7 @@
               <button class="loadout-slot" data-player="0" data-slot="skill1" aria-label="Player 1 choose Skill 1"><span class="loadout-type">SKILL 1</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
               <button class="loadout-slot" data-player="0" data-slot="skill2" aria-label="Player 1 choose Skill 2"><span class="loadout-type">SKILL 2</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
               <button class="loadout-slot" data-player="0" data-slot="ultimate" aria-label="Player 1 choose ultimate"><span class="loadout-type">ULTIMATE</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
+              <button class="loadout-slot item-slot" data-player="0" data-slot="item" aria-label="Player 1 choose item"><span class="loadout-type">ITEM</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
             </div>
           <div class="skill-picker" id="skill-picker-0" data-player="0" hidden>
             <img class="cosmetics-preview" id="cosmetics-preview-0" alt="Player 1 appearance preview" hidden />
@@ -191,6 +194,7 @@
               <button class="loadout-slot" data-player="1" data-slot="skill1" aria-label="Player 2 choose Skill 1"><span class="loadout-type">SKILL 1</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
               <button class="loadout-slot" data-player="1" data-slot="skill2" aria-label="Player 2 choose Skill 2"><span class="loadout-type">SKILL 2</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
               <button class="loadout-slot" data-player="1" data-slot="ultimate" aria-label="Player 2 choose ultimate"><span class="loadout-type">ULTIMATE</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
+              <button class="loadout-slot item-slot" data-player="1" data-slot="item" aria-label="Player 2 choose item"><span class="loadout-type">ITEM</span><span class="loadout-icon"></span><span class="loadout-name"></span></button>
             </div>
           <div class="skill-picker" id="skill-picker-1" data-player="1" hidden>
             <img class="cosmetics-preview" id="cosmetics-preview-1" alt="Player 2 appearance preview" hidden />
