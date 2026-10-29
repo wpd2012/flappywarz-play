@@ -1,0 +1,10 @@
+Generated with the built-in image_gen tool. Style reference: web/public/assets/birds.png.
+
+golden-quill
+Saved asset: bird-golden-quill.png
+Use case: stylized-concept. Production high-resolution transparent PNG projectile for FlappyWarZ. ONE long straight golden yellow feather projectile pointing horizontally RIGHT. Sharp pointed feather tip at far RIGHT, short orange quill stem at LEFT, chunky golden-yellow barbs with a few large cut notches, central warm orange shaft, simple white shine. Feather silhouette about 3:1 width-to-height. It must read as a FEATHER, not a dagger, spear blade or metal weapon. No handle, bird body, eyes, text or extra objects. Mandatory style: match the YELLOW Bird in the reference exactly: thick dark outlines, bright bold colors, smooth chunky shapes and simple two-tone cel shading. Cute readable 2D mobile game art. Entire projectile centered with transparent margins, actual alpha transparency. No background, ground, frame, realistic textures, painterly fantasy, 3D rendering, haze or heavy bloom.
+
+wing-gust
+Saved asset: bird-wing-gust.png
+Use case: stylized-concept. Production high-resolution transparent PNG projectile for FlappyWarZ. ONE broad CARTOON WIND PULSE flying RIGHT: three connected sweeping white/ivory air ribbons flare vertically on the left and converge into a rounded leading crest on the RIGHT, pale warm yellow inner shading, clean white highlights and bold dark brown outlines. Tall compact about 2:3 silhouette. Looks like a forceful airy gust, not water, fire, a bird face or a weapon. No detached particles, huge circular rings, text, bird bodies or extra objects. Mandatory style: match the YELLOW Bird in the reference exactly: thick dark outlines, bright bold colors, smooth chunky shapes and simple two-tone cel shading. Cute readable 2D mobile game art. Entire projectile centered with transparent margins, actual alpha transparency. No background, ground, frame, realistic textures, painterly fantasy, 3D rendering, haze or heavy bloom.
+

@@ -12,8 +12,8 @@
     <title>Flappy WarZ</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/flappywarz-play/icons/icon-32.png" />
     <link rel="icon" type="image/svg+xml" href="/flappywarz-play/icons/icon.svg" />
-    <script type="module" crossorigin src="/flappywarz-play/assets/index-DWOnmuHm.js"></script>
-    <link rel="stylesheet" crossorigin href="/flappywarz-play/assets/index-usACZuat.css">
+    <script type="module" crossorigin src="/flappywarz-play/assets/index-F7rTmV_c.js"></script>
+    <link rel="stylesheet" crossorigin href="/flappywarz-play/assets/index-BjFEDAig.css">
   </head>
   <body>
     <main id="stage" aria-label="Flappy WarZ two-player game">
@@ -74,6 +74,7 @@
         <button class="weapon red skill" data-player="1" data-action="skill1" aria-label="Player 2 Skill 1 (Numpad 2)"><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="m50 5 9 25 22-16-9 27 25 9-25 9 9 27-22-16-9 25-9-25-22 16 9-27L3 50l25-9-9-27 22 16Z"/></svg></span><b>SKILL 1</b><kbd>NUM 2</kbd><span class="cooldown">READY</span></button>
         <button class="weapon red regular" data-player="1" data-action="fire" aria-label="Player 2 regular fire (Numpad 1)"><span class="weapon-face"><svg viewBox="0 0 100 70" aria-hidden="true"><path d="M8 36 39 25 20 12 64 20C99 21 101 54 65 55L18 59 37 44Z"/></svg></span><b>FIRE</b><kbd>NUM 1</kbd></button>
       </div>
+      <div id="practice-tools" class="practice-tools" hidden><span>PRACTICE · STATIONARY TARGET</span><button class="practice-reset" data-practice-reset type="button" aria-label="Reset practice">↻ Reset</button></div>
       <div class="arena-caption"><span></span> LOCAL VERSUS <span></span></div>
       <div id="countdown" class="countdown" hidden aria-live="polite"></div>
 
@@ -128,6 +129,30 @@
         <div class="menu-card">
           <div class="eyebrow" id="menu-eyebrow">PREPARE - DOMINATE - WIN</div>
           <h1 id="menu-title">FLAPPY<br /><em>WARZ</em></h1>
+          <div class="movement-switch session-switch" role="group" aria-label="Game mode">
+            <div class="session-modes">
+              <button class="movement-option" data-session="versus" aria-pressed="true">VERSUS</button>
+              <button class="movement-option" data-session="practice" aria-pressed="false">PRACTICE</button>
+            </div>
+            <label class="control-layout-setting">Controls
+              <select id="control-layout" aria-label="Control layout">
+                <option value="split">Split</option>
+                <option value="solo">Solo</option>
+              </select>
+            </label>
+          </div>
+          <details id="practice-settings" class="practice-settings" hidden>
+            <summary>Practice settings <small>Stationary target</small></summary>
+            <div class="practice-options">
+              <label><input type="checkbox" data-practice-option="infiniteHP" /> Infinite HP</label>
+              <label><input type="checkbox" data-practice-option="instantAmmo" /> Instant ammo refill</label>
+              <label><input type="checkbox" data-practice-option="noSkillCooldowns" /> No skill cooldowns</label>
+              <label><input type="checkbox" data-practice-option="ultimateReady" /> Ultimate always ready</label>
+              <label><input type="checkbox" data-practice-option="unlimitedItems" /> Unlimited item charges</label>
+            </div>
+            <p>Target restores HP after 2s without damage and respawns after a KO.</p>
+            <button class="practice-reset" data-practice-reset type="button">↻ Reset practice</button>
+          </details>
           <div id="stage-options" class="stage-options" role="group" aria-label="Stage selection"></div>
           <button id="play-button" class="play-button">LET’S BATTLE <span>↗</span></button>
           <button id="restart-button" class="pause-return-button" type="button" aria-label="Return to character and stage selection" title="Return to character and stage selection" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5M4 9h9a7 7 0 0 1 0 14h-2"/></svg></button>
