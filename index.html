@@ -12,8 +12,8 @@
     <title>Flappy WarZ</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/flappywarz-play/icons/icon-32.png" />
     <link rel="icon" type="image/svg+xml" href="/flappywarz-play/icons/icon.svg" />
-    <script type="module" crossorigin src="/flappywarz-play/assets/index-F7rTmV_c.js"></script>
-    <link rel="stylesheet" crossorigin href="/flappywarz-play/assets/index-BjFEDAig.css">
+    <script type="module" crossorigin src="/flappywarz-play/assets/index-DlHn-5ql.js"></script>
+    <link rel="stylesheet" crossorigin href="/flappywarz-play/assets/index-C6TmYC8Z.css">
   </head>
   <body>
     <main id="stage" aria-label="Flappy WarZ two-player game">
@@ -41,7 +41,7 @@
         <div class="brand"><img class="logo" src="/flappywarz-play/assets/flappy-warz-logo.png" alt="Flappy WarZ" width="2059" height="764" draggable="false" /></div>
         <div class="player-hud red">
           <div class="health-panel">
-            <div class="player-name"><span id="character-name-1">OWL</span> PLAYER 2</div>
+            <div class="player-name"><span id="character-name-1">OWL</span> <strong id="opponent-label">PLAYER 2</strong></div>
             <div class="health-bar" id="health-1" role="progressbar" aria-label="Player 2 health" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="health-fill"></span><span class="health-value">100 / 100</span></div>
             <div class="ultimate-meter" id="ultimate-1" role="progressbar" aria-label="Player 2 ultimate charge" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" title="Sky Barrage charge"><span class="ultimate-fill"></span></div>
           </div>
@@ -74,7 +74,7 @@
         <button class="weapon red skill" data-player="1" data-action="skill1" aria-label="Player 2 Skill 1 (Numpad 2)"><span class="weapon-face"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="m50 5 9 25 22-16-9 27 25 9-25 9 9 27-22-16-9 25-9-25-22 16 9-27L3 50l25-9-9-27 22 16Z"/></svg></span><b>SKILL 1</b><kbd>NUM 2</kbd><span class="cooldown">READY</span></button>
         <button class="weapon red regular" data-player="1" data-action="fire" aria-label="Player 2 regular fire (Numpad 1)"><span class="weapon-face"><svg viewBox="0 0 100 70" aria-hidden="true"><path d="M8 36 39 25 20 12 64 20C99 21 101 54 65 55L18 59 37 44Z"/></svg></span><b>FIRE</b><kbd>NUM 1</kbd></button>
       </div>
-      <div id="practice-tools" class="practice-tools" hidden><span>PRACTICE · STATIONARY TARGET</span><button class="practice-reset" data-practice-reset type="button" aria-label="Reset practice">↻ Reset</button></div>
+      <div id="practice-tools" class="practice-tools" hidden><span id="practice-target-label">PRACTICE · STATIONARY TARGET</span><button class="practice-reset" data-practice-reset type="button" aria-label="Reset practice">↻ Reset</button></div>
       <div class="arena-caption"><span></span> LOCAL VERSUS <span></span></div>
       <div id="countdown" class="countdown" hidden aria-live="polite"></div>
 
@@ -131,7 +131,8 @@
           <h1 id="menu-title">FLAPPY<br /><em>WARZ</em></h1>
           <div class="movement-switch session-switch" role="group" aria-label="Game mode">
             <div class="session-modes">
-              <button class="movement-option" data-session="versus" aria-pressed="true">VERSUS</button>
+              <button class="movement-option" data-session="versus" aria-pressed="true">VERSUS 2P</button>
+              <button class="movement-option" data-session="versus-cpu" aria-pressed="false">VERSUS CPU</button>
               <button class="movement-option" data-session="practice" aria-pressed="false">PRACTICE</button>
             </div>
             <label class="control-layout-setting">Controls
@@ -141,16 +142,41 @@
               </select>
             </label>
           </div>
+          <label id="cpu-match-settings" class="cpu-match-settings" hidden>CPU difficulty
+            <select id="cpu-match-difficulty">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="hard">Hard</option>
+              <option value="very-hard">Very Hard</option>
+            </select>
+          </label>
           <details id="practice-settings" class="practice-settings" hidden>
-            <summary>Practice settings <small>Stationary target</small></summary>
+            <summary>Practice settings <small id="practice-behavior-label">Stationary target</small></summary>
+            <div class="practice-behavior-setting">
+              <label for="practice-behavior">Target behavior</label>
+              <div class="practice-target-options">
+                <select id="practice-difficulty" aria-label="CPU difficulty" hidden>
+                  <option value="easy">Easy</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="hard">Hard</option>
+                  <option value="very-hard">Very Hard</option>
+                </select>
+                <select id="practice-behavior">
+                  <option value="stationary">Stationary</option>
+                  <option value="moving">Moving</option>
+                  <option value="fighting">Fighting</option>
+                </select>
+              </div>
+            </div>
             <div class="practice-options">
+              <label><input id="practice-auto-heal" type="checkbox" checked /> Auto-heal target</label>
               <label><input type="checkbox" data-practice-option="infiniteHP" /> Infinite HP</label>
               <label><input type="checkbox" data-practice-option="instantAmmo" /> Instant ammo refill</label>
               <label><input type="checkbox" data-practice-option="noSkillCooldowns" /> No skill cooldowns</label>
               <label><input type="checkbox" data-practice-option="ultimateReady" /> Ultimate always ready</label>
               <label><input type="checkbox" data-practice-option="unlimitedItems" /> Unlimited item charges</label>
             </div>
-            <p>Target restores HP after 2s without damage and respawns after a KO.</p>
+            <p id="practice-recovery-description">Target restores HP after 2s without damage and respawns after a KO.</p>
             <button class="practice-reset" data-practice-reset type="button">↻ Reset practice</button>
           </details>
           <div id="stage-options" class="stage-options" role="group" aria-label="Stage selection"></div>
