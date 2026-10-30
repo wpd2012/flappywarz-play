@@ -1,0 +1,7 @@
+Built-in imagegen, based on the user’s lava-edge composition sketch and the existing Volcano basalt wall style.
+
+Generate a transparent lava overlay, landscape 3:1, full bleed at left/right for tiling. Transparent upper area, organic rolling pale-yellow hot molten lip around 40 percent image height, rich orange-red molten ribbons, pools and tapered drips flowing below across the existing rock. Leave actual alpha gaps between the lower flows; do not paint another rock wall. Smooth toon shading and narrow golden bloom. No rectangular frame, straight drawn border, checkerboard, background, text, isolated particles or smoke. Floor orientation; flip the same sprite vertically for the ceiling. Request 3072 x 1024.
+
+Cleanup edit: remove isolated pale white/beige smoky glowing blobs above or within transparent gaps; replace with clear alpha. Preserve the connected molten band, undulating lip, flows, holes, shading, full-bleed edges and dimensions.
+
+Generated at 2172 x 724 RGBA. Runtime conversion retains those dimensions and alpha in WebP at quality 88.

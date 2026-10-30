@@ -1,0 +1,4 @@
+Generated using the built-in image_gen tool, editing bird-golden-quill.png.
+Native 2172 x 724 transparent RGBA PNG; generated alpha preserved.
+
+Edit this golden feather game sprite into a Scarlet red feather variant. Preserve the exact long horizontal silhouette, right-facing pointed tip, shaft, feather lobes, thick dark cartoon outline, smooth clean cel shading, composition and wide 3:1 canvas. Change golden yellow feather vanes to vivid natural scarlet red with darker crimson shadow planes and warm light-red highlights; change orange shaft to deep crimson with a lighter warm-red highlight. Keep small white specular highlights. NOT pink, purple, magenta, flat solid fill, or realistic feather texture. One feather only. Transparent alpha background, no external glow or particles. Keep high native resolution around 2172x724 or higher. This is for a cute 2D cartoon game and should look like the same original asset in a red palette.

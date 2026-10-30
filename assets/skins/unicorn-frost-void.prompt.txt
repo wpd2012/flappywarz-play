@@ -1,0 +1,2 @@
+Built-in image_gen. Source: /Users/wpd/.codex/generated_images/01a18975-7c22-79e2-b455-6d412303b4a4/exec-60413b5e-cedf-4a3c-92fb-18dcd252c3d6.png
+Lighter friendlier base skin: smooth coat, no dark armor/neon cracks; preserve base silhouette and eye placement. Previous dark artwork preserved in assets/skins/unicorn-frost-void-ultimate.png for ultimate casting.

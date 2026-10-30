@@ -1,6 +1,6 @@
 # Character artwork
 
-Bird reuses `../birds.png` (two 887 × 887 frames). All other sprites were created
+Bird uses `../bird-base.png`; Rare Scarlet uses `bird-scarlet.png`, extracted and mirrored from the original atlas at its native 887 × 887 resolution. All other sprites were created
 with the built-in image_gen tool, using Bird as the style reference. The original
 transparent PNGs are preserved at 1254 × 1254 pixels. Artwork and accessory
 composition remain at native source resolution.

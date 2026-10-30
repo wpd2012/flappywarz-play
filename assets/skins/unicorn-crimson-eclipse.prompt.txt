@@ -1,0 +1,2 @@
+Built-in image_gen. Source: /Users/wpd/.codex/generated_images/01a18975-7c22-79e2-b455-6d412303b4a4/exec-1f8f8537-c184-4810-aa05-5bd8cbb9dd67.png
+Lighter friendlier base skin: smooth coat, no dark armor/neon cracks; preserve base silhouette and eye placement. Previous dark artwork preserved in assets/skins/unicorn-crimson-eclipse-ultimate.png for ultimate casting.
